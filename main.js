@@ -7,9 +7,12 @@ const deleteItem = (event) => {
   const todos = document.querySelector('.todos')
   const countTotal = document.querySelector('.total')
   const countComplete = document.querySelector('.complete')
+  const bool = child.children[0].checked
   parent.removeChild(child)
   countTotal.textContent = todos.children.length
-  numCompletedTodos == 0 ? countComplete.textContent = 0 + '/' : countComplete.textContent = --numCompletedTodos + '/'
+  if (bool === true){
+    numCompletedTodos <= 0 ? countComplete.textContent = 0 + '/' : countComplete.textContent = --numCompletedTodos + '/'
+  }
 }
 
 const completeItem = (event) => {
