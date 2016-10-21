@@ -1,6 +1,10 @@
+// global variables to keep track of completed and total items
 let numTodos = 0
 let numCompletedTodos = 0
 
+// function to delete an item from the todo list. If the item is
+// already completed, deleting will remove from number of completed
+// todos. If unchecked, only the total num of todos is updated
 const deleteItem = (event) => {
   const parent = event.target.parentNode.parentNode
   const child = event.target.parentNode
@@ -15,6 +19,8 @@ const deleteItem = (event) => {
   }
 }
 
+// strikethrough list item that has been checked off as complete,
+// unchecking removes from list of completes and removes strikethrough
 const completeItem = (event) => {
   const listItem = event.target.parentNode.children[1]
   const countComplete = document.querySelector('.complete')
@@ -22,6 +28,7 @@ const completeItem = (event) => {
   event.target.checked ? countComplete.textContent = ++numCompletedTodos + '/': countComplete.textContent = --numCompletedTodos + '/'
 }
 
+// adds a todo on submit from text input with a checkbox and delete button
 const addTodo = (event) => {
   const countTotal = document.querySelector('.total')
   const newTodo = document.querySelector('.new-todo')
@@ -52,6 +59,7 @@ const addTodo = (event) => {
   newTodo.value = ''
 }
 
+// main function fires on document load, renders most static DOM elements
 const init = () => {
   const footer = document.createElement('footer')
   footer.textContent = 'Brett Macy Productions 2016'
